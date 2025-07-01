@@ -1,49 +1,119 @@
 .stats-section {
-  justify-content: space-between;
-  align-items: center;
   display: flex;
+  justify-content: space-around; /* Distribute space around items */
+  align-items: center;
   width: 100%;
-  gap: 40px 100px;
+  gap: 40px; /* Unified gap for wrapping flex items */
   overflow: hidden;
-  font-family:
-    Poppins,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
   color: var(--neutrals-background-neturals-base-white, #fff);
   letter-spacing: 0.2px;
   line-height: 1.4;
-  flex-wrap: wrap;
-  padding: 20px var(--Space-128px, 128px);
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  /* --- MODIFIED PADDING HERE --- */
+  padding: 20px 80px; /* Reduced horizontal padding from 128px to 80px */
   background-color: var(--Main-Primary-Primary-Normal, #ff8d41);
+  box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
+/* Media query for larger tablets and smaller desktops */
+@media (max-width: 1200px) {
+  .stats-section {
+    /* --- MODIFIED PADDING HERE --- */
+    padding: 60px 60px; /* Reduced from 80px to 60px */
+    gap: 30px; /* Adjust gap */
+  }
+}
+
+/* Media query for tablets and larger phones */
 @media (max-width: 991px) {
   .stats-section {
-    max-width: 100%;
-    padding: 0 20px;
+    /* --- MODIFIED PADDING HERE --- */
+    padding: 50px 30px; /* Reduced from 40px to 30px */
+    justify-content: center; /* Center items when they wrap more */
+    gap: 40px; /* Increase gap for single/two columns */
+  }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 767px) {
+  .stats-section {
+    /* --- MODIFIED PADDING HERE --- */
+    padding: 40px 15px; /* Reduced from 20px to 15px */
+    flex-direction: column; /* Stack items vertically on small phones */
+    gap: 30px; /* Space between stacked items */
   }
 }
 
 .stat-item {
-  align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Center content horizontally within each stat item */
   justify-content: center;
-  width: 120px;
-  margin: auto 0;
+  text-align: center; /* Ensure text is centered */
+  flex-basis: 150px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  min-width: 120px;
+  max-width: 200px;
+  margin: 0;
 }
+
+/* Adjust flex-basis for tablets to allow 2 items per row potentially */
+@media (max-width: 991px) {
+  .stat-item {
+    flex-basis: calc(50% - 20px); /* Roughly 2 items per row considering gap */
+    max-width: 250px;
+  }
+}
+
+/* For very small mobile, stack vertically */
+@media (max-width: 767px) {
+  .stat-item {
+    flex-basis: 100%; /* Take full width to stack */
+    max-width: 180px; /* Constrain max width for single column readability */
+  }
+}
+
 
 .stat-label {
   color: var(--neutrals-background-neturals-base-white, #fff);
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Adjust font size for very small screens */
+@media (max-width: 480px) {
+  .stat-label {
+    font-size: 13px;
+  }
 }
 
 .stat-number {
   color: var(--neutrals-background-neturals-base-white, #fff);
   font-size: 42px;
   font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Responsive font size for stat number */
+@media (max-width: 991px) {
+  .stat-number {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 767px) {
+  .stat-number {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-number {
+    font-size: 30px;
+  }
 }
