@@ -10,7 +10,8 @@
   letter-spacing: 0.2px;
   line-height: 1.4;
   flex-wrap: wrap; /* Allow items to wrap to the next line */
-  padding: 80px 128px; /* Adjusted base padding for better top/bottom spacing */
+  /* --- MODIFIED PADDING HERE --- */
+  padding: 20px 80px; /* Reduced horizontal padding from 128px to 80px */
   background-color: var(--Main-Primary-Primary-Normal, #ff8d41);
   box-sizing: border-box; /* Include padding in the element's total width and height */
 }
@@ -18,7 +19,8 @@
 /* Media query for larger tablets and smaller desktops */
 @media (max-width: 1200px) {
   .stats-section {
-    padding: 60px 80px; /* Reduce padding for medium screens */
+    /* --- MODIFIED PADDING HERE --- */
+    padding: 60px 60px; /* Reduced from 80px to 60px */
     gap: 30px; /* Adjust gap */
   }
 }
@@ -26,7 +28,8 @@
 /* Media query for tablets and larger phones */
 @media (max-width: 991px) {
   .stats-section {
-    padding: 50px 40px; /* Further reduce padding */
+    /* --- MODIFIED PADDING HERE --- */
+    padding: 50px 30px; /* Reduced from 40px to 30px */
     justify-content: center; /* Center items when they wrap more */
     gap: 40px; /* Increase gap for single/two columns */
   }
@@ -35,7 +38,8 @@
 /* Media query for mobile phones */
 @media (max-width: 767px) {
   .stats-section {
-    padding: 40px 20px; /* Mobile padding */
+    /* --- MODIFIED PADDING HERE --- */
+    padding: 40px 15px; /* Reduced from 20px to 15px */
     flex-direction: column; /* Stack items vertically on small phones */
     gap: 30px; /* Space between stacked items */
   }
@@ -47,13 +51,12 @@
   align-items: center; /* Center content horizontally within each stat item */
   justify-content: center;
   text-align: center; /* Ensure text is centered */
-  /* These flex-basis values are crucial for wrapping behavior */
-  flex-basis: 150px; /* A base width for each item */
-  flex-grow: 1; /* Allow items to grow to fill space */
-  flex-shrink: 0; /* Prevent items from shrinking too much, let them wrap instead */
-  min-width: 120px; /* Ensure a minimum width for the item */
-  max-width: 200px; /* Prevent items from becoming too wide if few items */
-  margin: 0; /* Remove auto margins if present, rely on gap */
+  flex-basis: 150px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  min-width: 120px;
+  max-width: 200px;
+  margin: 0;
 }
 
 /* Adjust flex-basis for tablets to allow 2 items per row potentially */
@@ -77,9 +80,9 @@
   color: var(--neutrals-background-neturals-base-white, #fff);
   font-size: 14px;
   font-weight: 500;
-  white-space: nowrap; /* Prevent label from wrapping if possible */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis if it overflows */
+  text-overflow: ellipsis;
 }
 
 /* Adjust font size for very small screens */
@@ -93,7 +96,7 @@
   color: var(--neutrals-background-neturals-base-white, #fff);
   font-size: 42px;
   font-weight: 600;
-  margin-top: 5px; /* Small gap between label and number */
+  margin-top: 5px;
 }
 
 /* Responsive font size for stat number */
