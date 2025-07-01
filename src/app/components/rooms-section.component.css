@@ -227,3 +227,32 @@
     font-size: 13px; /* Slightly smaller for very small screens */
   }
 }
+.rooms-grid {
+  display: flex;
+  justify-content: flex-start; /* Aligner à gauche au lieu de centrer */
+  align-items: stretch;
+  flex-wrap: nowrap; /* Empêcher le retour à la ligne */
+  margin-top: 100px;
+  width: 100%;
+  gap: 48px;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  overflow-x: auto; /* Permettre le défilement horizontal si nécessaire */
+  padding-bottom: 20px; /* Espace pour la barre de défilement */
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: #ff8d41 #f8f9fb; /* Pour Firefox */
+}
+
+/* Style de la barre de défilement pour Chrome/Safari */
+.rooms-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.rooms-grid::-webkit-scrollbar-track {
+  background: #f8f9fb;
+}
+
+.rooms-grid::-webkit-scrollbar-thumb {
+  background-color: #ff8d41;
+  border-radius: 4px;
+}
