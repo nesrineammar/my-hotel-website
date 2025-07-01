@@ -1,0 +1,301 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 850px;
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+  justify-content: center;
+  padding: 50px 80px 80px; /* Base padding for larger screens */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  text-align: center; /* Center text by default, adjust specific elements as needed */
+}
+
+/* Media query for medium screens (e.g., tablets) */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 40px 40px 60px; /* Reduce padding for medium screens */
+    min-height: 700px; /* Adjust min-height for slightly smaller screens */
+  }
+}
+
+/* Media query for small screens (e.g., mobile phones) */
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 30px 20px 40px; /* Further reduce padding for small screens */
+    min-height: 600px; /* Adjust min-height for mobile */
+  }
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1; /* Place background behind content */
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: 1390px;
+  display: flex; /* Use flexbox for content arrangement */
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  gap: 150px; /* Gap between header and hero-main on larger screens */
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: 100px; /* Reduce gap for medium screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content {
+    gap: 60px; /* Further reduce gap for small screens */
+  }
+}
+
+.main-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px 50px; /* Smaller gap for flex-wrap */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+@media (max-width: 767px) {
+  .main-header {
+    flex-direction: column; /* Stack logo, nav, and button vertically */
+    gap: 20px;
+    align-items: center; /* Center items when stacked */
+  }
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap; /* Prevent logo from wrapping */
+}
+
+.logo-accent {
+  color: rgba(255, 141, 65, 1);
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allow nav links to wrap */
+  justify-content: center; /* Center nav links when wrapped */
+  gap: 20px; /* Adjust gap between nav links */
+  color: var(--neutrals-background-neturals-neutral-color-300, #eee);
+  white-space: nowrap; /* Prevent individual links from wrapping initially */
+  letter-spacing: 0.2px;
+  flex-grow: 1; /* Allow navigation to take available space */
+}
+
+@media (max-width: 767px) {
+  .main-navigation {
+    flex-direction: column; /* Stack nav links vertically on small screens */
+    gap: 15px;
+    white-space: initial; /* Allow wrapping on initial load */
+  }
+  .nav-link {
+    font-size: 16px; /* Adjust font size for mobile nav links */
+  }
+  .nav-link-active {
+    font-size: 18px; /* Keep active link slightly larger */
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-link:hover {
+  color: var(--neutrals-background-neturals-base-white, #fff);
+}
+
+.nav-link-active {
+  color: var(--neutrals-background-neturals-base-white, #fff);
+  font-size: 18px; /* This is already defined in your original CSS */
+}
+
+.logout-button {
+  color: var(--neutrals-background-neturals-base-white, #fff);
+  letter-spacing: 0.2px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px; /* Add some padding to the button */
+  border-radius: 8px; /* Slightly rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+}
+
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically within hero-main */
+  align-items: center; /* Center content horizontally within hero-main */
+  width: 100%;
+  max-width: 604px; /* Maintain max-width for content readability */
+  min-height: auto; /* Remove fixed min-height, let content define it */
+}
+
+@media (max-width: 991px) {
+  .hero-main {
+    margin-top: 80px; /* Adjust margin-top for smaller screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-main {
+    margin-top: 40px; /* Further adjust margin-top for mobile */
+  }
+}
+
+.hero-text {
+  width: 100%;
+  text-align: center; /* Center text within hero-text */
+}
+
+.welcome-text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  margin-bottom: 0; /* Adjust margin */
+}
+
+.main-title {
+  color: #ffffff;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2; /* Use relative line-height for better scaling */
+  margin-top: 16px;
+  margin-bottom: 0; /* Adjust margin */
+  word-break: break-word; /* Allow long words to break and wrap */
+}
+
+@media (max-width: 991px) {
+  .main-title {
+    font-size: 48px; /* Adjust font size for medium screens */
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-title {
+    font-size: 32px; /* Adjust font size for small screens */
+    line-height: 1.1;
+  }
+}
+
+.title-accent {
+  color: rgba(255, 141, 65, 1);
+}
+
+.hero-description {
+  color: var(--neutrals-background-neturals-neutral-color-300, #eee);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4; /* Use relative line-height */
+  letter-spacing: 0.2px;
+  margin-top: 32px;
+  max-width: 100%; /* Ensure it doesn't overflow */
+}
+
+@media (max-width: 767px) {
+  .hero-description {
+    font-size: 14px; /* Adjust font size for mobile */
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  margin-top: 32px;
+  align-items: center; /* Center buttons vertically */
+  justify-content: center; /* Center buttons horizontally */
+  gap: 12px;
+  font-size: 14px;
+  color: var(--neutrals-background-neturals-base-white, #fff);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  width: 100%; /* Take full width to help centering */
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+}
+
+.primary-button,
+.secondary-button {
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  flex-grow: 1; /* Allow buttons to grow and shrink */
+  min-width: 140px; /* Minimum width for buttons */
+  max-width: 200px; /* Optional: max width for buttons */
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.primary-button {
+  background-color: var(--Main-Primary-Primary-Normal, #ff8d41);
+}
+
+.primary-button:hover {
+  background-color: #e67a32; /* Darken on hover */
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: none;
+  border: 1.5px solid var(--neutrals-background-neturals-base-white, #fff);
+}
+
+.secondary-button:hover {
+  border-color: rgba(255, 255, 255, 0.7); /* Slightly fade border on hover */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .hero-buttons {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 10px;
+  }
+  .primary-button,
+  .secondary-button {
+    width: 90%; /* Buttons take more width on mobile */
+    max-width: 250px; /* Adjust max width for mobile buttons */
+  }
+}
+
+.button-text {
+  white-space: nowrap; /* Prevent button text from wrapping */
+}

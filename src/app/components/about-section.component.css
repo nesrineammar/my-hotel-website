@@ -1,0 +1,260 @@
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--neutrals-background-neturals-base-white, #fff);
+  padding: 100px 129px; /* Base padding for large screens */
+  box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .about-section {
+    padding: 80px 80px; /* Adjust padding for slightly smaller desktops */
+  }
+}
+
+@media (max-width: 991px) {
+  .about-section {
+    padding: 60px 40px; /* Tablet breakpoint */
+  }
+}
+
+@media (max-width: 767px) {
+  .about-section {
+    padding: 40px 20px; /* Mobile breakpoint */
+  }
+}
+
+.about-container {
+  display: flex;
+  width: 100%;
+  max-width: 1291px; /* Max width to contain content */
+  flex-direction: column;
+  align-items: center; /* Center content within the container */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--neutrals-background-neturals-neutral-color-800, #616161);
+  letter-spacing: 0.2px;
+  justify-content: center;
+  text-align: center; /* Ensure title is centered */
+  font:
+    600 16px/1.4 Poppins,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  flex-wrap: wrap; /* Allow header content to wrap */
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.section-divider {
+  aspect-ratio: 16.39;
+  object-fit: contain;
+  object-position: center;
+  width: 33px; /* Fixed width for the divider */
+  stroke-width: 2.5px;
+  stroke: var(--neutrals-background-neturals-neutral-color-800, #616161);
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.section-title {
+  color: var(--neutrals-background-neturals-neutral-color-800, #616161);
+  /* font size will be naturally responsive from parent */
+  white-space: nowrap; /* Prevent title from wrapping itself if possible */
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 14px; /* Slightly smaller font for very small screens */
+  }
+}
+
+
+.about-content {
+  margin-top: 100px; /* Space from header */
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack articles by default */
+  gap: 100px; /* Space between articles */
+}
+
+@media (max-width: 991px) {
+  .about-content {
+    margin-top: 60px; /* Adjust margin for tablets */
+    gap: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-content {
+    margin-top: 40px; /* Adjust margin for mobile */
+    gap: 40px;
+  }
+}
+
+.history-article,
+.why-choose-article {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center; /* Center items horizontally when wrapped */
+  flex-wrap: wrap; /* Allow image and text to wrap */
+  gap: 40px; /* Gap between image and text content */
+}
+
+@media (max-width: 991px) {
+  .history-article,
+  .why-choose-article {
+    flex-direction: column; /* Stack image and text vertically on tablets */
+    gap: 30px;
+  }
+}
+
+/* Specific order for why-choose-article on smaller screens */
+@media (max-width: 991px) {
+  .why-choose-article {
+    flex-direction: column-reverse; /* Put text first, then image */
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 1.5px solid var(--neutrals-background-neturals-neutral-color-400, #e0e0e0);
+  padding: 16px;
+  flex-grow: 1; /* Allow container to grow */
+  flex-shrink: 1; /* Allow container to shrink */
+  min-width: 280px; /* Minimum width for image container */
+  max-width: 450px; /* Max width to prevent image from becoming too large */
+  width: 100%; /* Take full width within its flex context */
+  box-sizing: border-box;
+}
+
+.about-image {
+  width: 100%; /* Image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the container, cropping if necessary */
+  border-radius: 34px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically if space allows */
+  align-items: flex-start; /* Align text to the start by default */
+  font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+  flex-grow: 1; /* Allow text content to grow */
+  flex-shrink: 1; /* Allow text content to shrink */
+  min-width: 280px; /* Minimum width for text content */
+  max-width: 550px; /* Max width for readability */
+  width: 100%; /* Take full width within its flex context */
+  gap: 32px; /* Gap between elements inside text-content */
+}
+
+@media (max-width: 991px) {
+  .text-content {
+    align-items: center; /* Center text content on smaller screens */
+    text-align: center; /* Center text within the text-content */
+  }
+}
+
+
+.article-title {
+  color: #424242;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2; /* Adjust line-height for better readability */
+}
+
+@media (max-width: 991px) {
+  .article-title {
+    font-size: 32px; /* Adjust font size for tablets */
+  }
+}
+
+@media (max-width: 767px) {
+  .article-title {
+    font-size: 28px; /* Adjust font size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .article-title {
+    font-size: 24px; /* Further adjust for very small screens */
+  }
+}
+
+.title-neutral {
+  color: rgba(66, 66, 66, 1);
+}
+
+.title-accent {
+  color: rgba(255, 141, 65, 1);
+}
+
+.article-text {
+  margin-top: 0; /* Reset margin-top from original */
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 1.6; /* Improve line spacing for readability */
+}
+
+@media (max-width: 767px) {
+  .article-text {
+    font-size: 14px; /* Smaller font for mobile */
+  }
+}
+
+.primary-text {
+  color: var(--neutrals-background-neturals-neutral-color-900, #424242);
+}
+
+.secondary-text {
+  color: var(--neutrals-background-neturals-neutral-color-600, #9e9e9e);
+  margin-top: 16px;
+}
+
+.outline-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1.5px solid var(--Main-Primary-Primary-Normal, #ff8d41);
+  gap: 8px;
+  font-size: 14px;
+  color: var(--Main-Primary-Primary-Normal, #ff8d41);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  padding: 12px 24px;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for hover */
+}
+
+.outline-button:hover {
+  background-color: var(--Main-Primary-Primary-Normal, #ff8d41); /* Fill background on hover */
+  color: var(--neutrals-background-neturals-base-white, #fff); /* Change text color on hover */
+}
+
+.button-text {
+  white-space: nowrap; /* Prevent button text from wrapping */
+}

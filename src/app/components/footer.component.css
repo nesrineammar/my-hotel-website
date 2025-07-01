@@ -1,0 +1,177 @@
+.main-footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center; /* Center the footer content horizontally */
+  font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+  justify-content: center;
+  background-color: var(--neutrals-background-neturals-base-white, #fff);
+  padding: 100px 80px; /* Base padding for large screens */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Adjust padding for tablets and smaller desktops */
+@media (max-width: 1200px) {
+  .main-footer {
+    padding: 80px 40px;
+  }
+}
+
+/* Adjust padding for mobile phones */
+@media (max-width: 767px) {
+  .main-footer {
+    padding: 60px 20px;
+  }
+}
+
+.footer-content {
+  display: flex;
+  width: 100%; /* Take full width of its parent */
+  max-width: 1346px; /* Max width to contain content */
+  align-items: flex-start; /* Align items to the top */
+  gap: 40px 100px; /* Vertical and horizontal gap between flex items */
+  justify-content: space-between; /* Distribute items with space between them */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+/* Adjust gaps for smaller screens */
+@media (max-width: 1200px) {
+  .footer-content {
+    gap: 40px 50px; /* Reduce horizontal gap */
+  }
+}
+
+@media (max-width: 991px) {
+  .footer-content {
+    justify-content: center; /* Center items when they start wrapping more aggressively */
+    gap: 40px; /* Equal gap for wrapped items */
+  }
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 280px; /* Base width for the brand section */
+  flex-grow: 1; /* Allow it to grow */
+  flex-shrink: 1; /* Allow it to shrink */
+  min-width: 200px; /* Minimum width to prevent content from squishing too much */
+  text-align: left; /* Default text alignment */
+}
+
+@media (max-width: 767px) {
+  .footer-brand {
+    flex-basis: 100%; /* Take full width on mobile */
+    align-items: center; /* Center content on mobile */
+    text-align: center; /* Center text on mobile */
+  }
+}
+
+.footer-logo {
+  color: #424242;
+  font-size: 28px; /* Slightly larger for prominence */
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 24px;
+  }
+}
+
+.logo-accent {
+  color: rgba(255, 141, 65, 1);
+}
+
+.footer-info {
+  margin-top: 24px;
+  width: 100%;
+  font-size: 14px;
+  color: var(--neutrals-background-neturals-neutral-color-600, #9e9e9e);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack description and email */
+  gap: 16px; /* Gap between description and email */
+}
+
+.footer-description {
+  color: var(--neutrals-background-neturals-neutral-color-600, #9e9e9e);
+  line-height: 20px;
+}
+
+.footer-email {
+  color: var(--neutrals-background-neturals-neutral-color-600, #9e9e9e);
+  line-height: 1.4;
+  margin-top: 0; /* Reset margin from original */
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  flex-basis: 150px; /* Base width for each nav column */
+  flex-grow: 1; /* Allow it to grow */
+  flex-shrink: 1; /* Allow it to shrink */
+  min-width: 120px; /* Minimum width for nav columns */
+  gap: 24px; /* Gap between title and list */
+}
+
+/* Adjust nav column width for tablets to allow more per row */
+@media (max-width: 991px) {
+  .footer-nav {
+    flex-basis: calc(50% - 30px); /* Two columns per row on tablets (considering gap) */
+    max-width: 250px; /* Limit max width for a cleaner look when wrapped */
+  }
+}
+
+/* Stack nav columns on very small mobile screens */
+@media (max-width: 480px) {
+  .footer-nav {
+    flex-basis: 100%; /* Full width on tiny screens */
+    align-items: center; /* Center content */
+    text-align: center; /* Center text */
+  }
+}
+
+.footer-nav-title {
+  color: var(--neutrals-background-neturals-neutral-color-900, #424242);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer-nav-list {
+  margin-top: 0; /* Reset margin from original */
+  width: 100%;
+  font-size: 14px;
+  color: var(--neutrals-background-neturals-neutral-color-600, #9e9e9e);
+  font-weight: 500;
+  list-style: none;
+  padding: 0;
+  display: flex; /* Make list a flex container */
+  flex-direction: column; /* Stack list items */
+  gap: 16px; /* Gap between list items */
+}
+
+@media (max-width: 480px) {
+  .footer-nav-list {
+    align-items: center; /* Center list items on very small screens */
+  }
+}
+
+/* Remove direct margin-top from li, use gap on ul instead */
+.footer-nav-list li {
+  margin-top: 0;
+}
+
+.footer-nav-link {
+  color: var(--neutrals-background-neturals-neutral-color-600, #9e9e9e);
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer-nav-link:hover {
+  color: var(--neutrals-background-neturals-neutral-color-900, #424242);
+}
