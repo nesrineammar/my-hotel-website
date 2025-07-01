@@ -66,7 +66,7 @@
   aspect-ratio: 15.87;
   object-fit: contain;
   object-position: center;
-  width: 32px;
+  width: 32px; /* Fixed width */
   stroke-width: 2.5px;
   stroke: var(--neutrals-background-neturals-neutral-color-800, #616161);
   flex-shrink: 0; /* Prevent shrinking */
@@ -114,7 +114,6 @@
   }
 }
 
-
 .title-accent {
   color: rgba(255, 141, 65, 1);
 }
@@ -123,8 +122,7 @@
   display: flex;
   justify-content: center; /* Center cards horizontally */
   align-items: stretch; /* Stretch cards to equal height */
-  align-content: center;
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line (creating "lines") */
   margin-top: 100px;
   width: 100%;
   gap: 48px; /* Space between cards */
@@ -158,7 +156,8 @@
   padding: 64px 32px; /* Padding inside the card */
   flex-grow: 1; /* Allow cards to grow */
   flex-shrink: 1; /* Allow cards to shrink */
-  width: calc(33.333% - 32px); /* For 3 columns on large screens (approx) */
+  /* This calculation ensures 3 columns with a gap on larger screens */
+  flex-basis: calc(33.333% - 32px); /* Preferred width for 3 columns with 48px gap */
   min-width: 280px; /* Minimum width before wrapping */
   max-width: 350px; /* Max width to prevent cards from becoming too wide */
   text-align: center; /* Center text within the card */
@@ -168,7 +167,7 @@
 /* For screens where 2 columns fit better */
 @media (max-width: 1200px) {
   .service-card {
-    width: calc(50% - 24px); /* For 2 columns */
+    flex-basis: calc(50% - 24px); /* For 2 columns with 32px gap */
     padding: 48px 24px;
   }
 }
@@ -176,7 +175,7 @@
 /* For mobile, stack cards in a single column */
 @media (max-width: 767px) {
   .service-card {
-    width: 90%; /* Take up most of the width */
+    flex-basis: 90%; /* Take up most of the width */
     max-width: 350px; /* Keep a max-width */
     padding: 32px 20px;
   }
@@ -254,5 +253,73 @@
 @media (max-width: 480px) {
   .service-description {
     font-size: 11px;
+  }
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  grid-template-rows: repeat(2, 1fr); /* 2 lignes */
+  margin-top: 100px;
+  width: 100%;
+  gap: 48px;
+  letter-spacing: 0.2px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--neutrals-background-neturals-neutral-color-300, #eee);
+  border-radius: 12px;
+  background-color: var(--neutrals-background-neturals-base-white, #fff);
+  padding: 64px 32px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Supprimez les propriétés flex-grow, flex-shrink et width */
+}
+
+/* Pour les écrans moyens (2 colonnes) */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    grid-template-rows: repeat(3, 1fr); /* 3 lignes */
+    gap: 32px;
+  }
+}
+
+/* Pour les mobiles (1 colonne) */
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* 1 colonne */
+    grid-template-rows: repeat(6, auto); /* 6 lignes */
+    gap: 24px;
+  }
+  
+  .service-card {
+    width: 100%;
+    max-width: none;
+    padding: 32px 20px;
+  }
+}
+.service-card-featured {
+  grid-column: 2; /* Place la carte featured dans la colonne du milieu */
+  grid-row: 1;    /* Sur la première ligne */
+  border: 1px solid var(--Main-Primary-Primary-Normal, #ff8d41);
+  color: var(--neutrals-background-neturals-base-white, #fff);
+  background-color: var(--Main-Primary-Primary-Normal, #ff8d41);
+}
+
+@media (max-width: 1200px) {
+  .service-card-featured {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-card-featured {
+    grid-column: 1;
+    grid-row: auto; /* Laisse le navigateur placer la carte naturellement */
   }
 }
