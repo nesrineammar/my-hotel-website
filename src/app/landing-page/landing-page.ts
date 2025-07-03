@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../storage.service';
+import { Router } from '@angular/router';
 import { HeroSectionComponent } from "../components/hero-section.component";
 import { AboutSectionComponent } from "../components/about-section.component";
 import { ServicesSectionComponent } from "../components/services-section.component";
@@ -8,10 +10,26 @@ import { StatsSectionComponent } from "../components/stats-section.component";
 
 @Component({
   selector: 'app-landing-page',
-  imports: [HeroSectionComponent, AboutSectionComponent, ServicesSectionComponent, RoomsSectionComponent, FooterComponent, StatsSectionComponent],
+  standalone: true,
+  imports: [ HeroSectionComponent, 
+    AboutSectionComponent, 
+    ServicesSectionComponent, 
+    RoomsSectionComponent, 
+    FooterComponent, 
+    StatsSectionComponent],
   templateUrl: './landing-page.html',
-  styleUrl: './landing-page.css'
+  styleUrls: ['./landing-page.css']
 })
-export class LandingPage {
+export class LandingPage implements OnInit {
+  token: string | null = null;
 
+  constructor(
+    private storageService: StorageService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.token = this.storageService.getToken();
+console.log(this.token)
+  }
 }

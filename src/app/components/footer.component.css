@@ -30,7 +30,8 @@
   width: 100%; /* Take full width of its parent */
   max-width: 1346px; /* Max width to contain content */
   align-items: flex-start; /* Align items to the top */
-  gap: 40px 100px; /* Vertical and horizontal gap between flex items */
+  /* MODIFICATION: Ajustement du gap pour encourager la ligne unique sur grand écran */
+  gap: 40px 60px; /* Vertical gap 40px, Horizontal gap reduced to 60px */
   justify-content: space-between; /* Distribute items with space between them */
   flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
@@ -38,7 +39,7 @@
 /* Adjust gaps for smaller screens */
 @media (max-width: 1200px) {
   .footer-content {
-    gap: 40px 50px; /* Reduce horizontal gap */
+    gap: 40px 40px; /* Further reduce horizontal gap */
   }
 }
 
@@ -112,17 +113,18 @@
   flex-direction: column;
   letter-spacing: 0.2px;
   line-height: 1.4;
-  flex-basis: 150px; /* Base width for each nav column */
+  /* MODIFICATION: Ajustement de flex-basis pour mieux gérer l'espace sur grand écran */
+  flex-basis: 120px; /* Slightly reduced base width to allow more items on one line */
   flex-grow: 1; /* Allow it to grow */
   flex-shrink: 1; /* Allow it to shrink */
-  min-width: 120px; /* Minimum width for nav columns */
+  min-width: 100px; /* Ensure minimum width for nav columns */
   gap: 24px; /* Gap between title and list */
 }
 
 /* Adjust nav column width for tablets to allow more per row */
 @media (max-width: 991px) {
   .footer-nav {
-    flex-basis: calc(50% - 30px); /* Two columns per row on tablets (considering gap) */
+    flex-basis: calc(50% - 20px); /* Adjusted for 2 columns per row, considering new gap values */
     max-width: 250px; /* Limit max width for a cleaner look when wrapped */
   }
 }

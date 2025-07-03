@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { UserService } from "../user-service";
+import { Router, RouterModule } from "@angular/router"; // Make sure RouterModule is here
 
 @Component({
   selector: "hero-section",
@@ -20,7 +22,7 @@ import { CommonModule } from "@angular/common";
             <a href="#" class="nav-link">Services</a>
             <a href="#" class="nav-link">Contact</a>
           </nav>
-          <button class="logout-button">Logout</button>
+          <button type="button" (click)="logout()" [routerLink]="['/login']" class="logout-button">Logout</button>
         </header>
         <div class="hero-main">
           <div class="hero-text">
@@ -48,6 +50,18 @@ import { CommonModule } from "@angular/common";
   `,
   styleUrls: ["./hero-section.component.css"],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule], // Make sure RouterModule is listed here
 })
-export class HeroSectionComponent {}
+export class HeroSectionComponent {
+  constructor(private userService: UserService, private router: Router) {}
+
+  logout() {
+    this.userService.clearToken();
+    // The router.navigate call here is now redundant if you use routerLink
+    // but keeping it doesn't hurt, though routerLink will handle navigation primarily.
+    // However, it's cleaner to remove it if routerLink is used for navigation.
+    // this.router.navigate(['/login']).catch(err => {
+    //   console.error('Navigation error:', err);
+    // });
+  }
+}
